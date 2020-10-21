@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const UserSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
     fullname: {
         type: String,
         required: [true, 'الاسم المطلوب إجباري'],
@@ -18,5 +18,5 @@ const UserSchema = new mongoose.Schema({
         trim: true
     }
 });
-const User = mongoose.model('User', UserSchema);
-module.exports = User;
+const Admin = mongoose.model('Admin', adminSchema);
+module.exports = Admin;

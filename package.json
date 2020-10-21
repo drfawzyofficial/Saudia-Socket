@@ -1,27 +1,20 @@
 {
-    "name": "fawzyproject",
+    "name": "sudia",
     "version": "1.0.0",
-    "description": "Project",
+    "description": "Real Time App",
     "main": "app.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "start": "nodemon app.js",
         "stop": "taskkill -f -im node.exe"
     },
     "author": "fawzy",
     "license": "MIT",
     "dependencies": {
-        "ejs": "^3.0.2",
         "express": "^4.17.1",
-        "jsonwebtoken": "^8.5.1",
         "mongoose": "^5.7.1",
         "morgan": "^1.10.0",
-        "mysql": "^2.18.1",
-        "mysql2": "^2.1.0",
         "nodemon": "^1.19.2",
-        "sequelize": "^5.21.6",
-        "socket.io": "^2.3.0",
-        "socketio-auth": "^0.1.1",
-        "socketio-jwt": "^4.5.0"
+        "socket.io": "^2.3.0"
     }
 }
