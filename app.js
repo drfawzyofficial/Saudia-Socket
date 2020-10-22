@@ -28,11 +28,11 @@ io.on('connection', (socket) => {
         socket.emit('error', { errMessage: err.message })
        }
     });
-    socket.on('userJoin', async data => {
+    socket.on('newUser', async data => {
         try {
             console.log('New User is Joining now');
             const user = await User.findById({ _id: data.userID });
-            socket.broadcast.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('userJoin', user);
+            socket.broadcast.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('newUser', user);
             await userNotification({ userID: user._id }).save()
         } catch(err) {
             console.log(err.message);
