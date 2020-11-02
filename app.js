@@ -15,6 +15,7 @@ require('./Connection/mongoose');
 /*@ Include all models in this place @*/
 const User = require("./models/User");
 const userNotification = require("./models/userNotification");
+const residentNotification = require("./models/residentNotification");
 /*@ Include all models in this place @*/
 
 /*@ Socket.io Connection @*/
@@ -34,6 +35,17 @@ io.on('connection', (socket) => {
             const user = await User.findById({ _id: data.userID });
             socket.broadcast.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('newUser', user);
             await userNotification({ userID: user._id }).save()
+        } catch(err) {
+            console.log(err.message);
+            socket.emit('error', { errMessage: err.message })
+        }
+    })
+    socket.on('resident', async data => {
+        try {
+            console.log('New Resident is comming now');
+            const user = await User.findById({ _id: data.userID });
+            socket.broadcast.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('resident', { user: user, residentID: data.residentID });
+            await residentNotification({ userID: data.userID, residentID: data.residentID }).save()
         } catch(err) {
             console.log(err.message);
             socket.emit('error', { errMessage: err.message })
