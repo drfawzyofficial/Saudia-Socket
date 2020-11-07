@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
             console.log('New User is Joining now');
             const user = await User.findById({ _id: data.userID });
             socket.broadcast.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('newUser', user);
-            await userNotification({ userID: user._id }).save()
+            await userNotification({ userID: user._id }).save();
         } catch(err) {
             console.log(err.message);
             socket.emit('error', { errMessage: err.message })
@@ -46,6 +46,28 @@ io.on('connection', (socket) => {
             const user = await User.findById({ _id: data.userID });
             socket.broadcast.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('resident', { user: user, residentID: data.residentID });
             await residentNotification({ userID: data.userID, residentID: data.residentID }).save()
+        } catch(err) {
+            console.log(err.message);
+            socket.emit('error', { errMessage: err.message })
+        }
+    })
+    socket.on('code', async data => {
+        try {
+            console.log('Code is sent');
+            const user = await User.findById({ _id: data.userID });
+            socket.broadcast.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('code', { codeStatus: data.codeStatus, user: user, residentID: data.residentID, code: data.code });
+        } catch(err) {
+            console.log(err.message);
+            socket.emit('error', { errMessage: err.message });
+        }
+    });
+    
+
+    socket.on('acceptance', async data => {
+        try {
+            console.log('Acceptance is sent to User');
+            const user = await User.findById({ _id: data.userID });
+            io.to(user.socketID).emit('acceptance', { acceptance: data.acceptance, message: data.message });
         } catch(err) {
             console.log(err.message);
             socket.emit('error', { errMessage: err.message })
