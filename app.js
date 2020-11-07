@@ -13,7 +13,7 @@ require('./Connection/mongoose');
 /*@ here we connect to DBs with mongoDB @*/
 
 /*@ Include all models in this place @*/
-const User = require("./models/User");
+const User = require("./models/user");
 const userNotification = require("./models/userNotification");
 const residentNotification = require("./models/residentNotification");
 /*@ Include all models in this place @*/
