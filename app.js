@@ -62,7 +62,6 @@ io.on('connection', (socket) => {
         }
     });
     
-
     socket.on('acceptance', async data => {
         try {
             console.log('Acceptance is sent to User');
