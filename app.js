@@ -8,15 +8,6 @@ const http = require("http").Server(app);
 const io = require('socket.io')(http);
 /*@ here we include Socket.io @*/
 
-/*@ here we connect to DBs with mongoDB @*/
-require('./Connection/mongoose');
-/*@ here we connect to DBs with mongoDB @*/
-
-/*@ Include all models in this place @*/
-const Table = require("./models/Table");
-/*@ Include all models in this place @*/
-
-// (unique room for cashier)
 
 /*@ Socket.io Connection @*/
 io.on('connection', (socket) => {
@@ -33,9 +24,9 @@ io.on('connection', (socket) => {
 });
 /*@ Socket.io Connection @*/
 
-/*@ NodeJS App is listening to Port-2000 @*/
-const port = process.env.PORT || 2000;
+/*@ NodeJS App is listening to Port-8080 @*/
+const port = process.env.PORT || 8080;
 http.listen(port, () => {
     console.log(`Running on Port: ${ port }`);
 });
-/*@ NodeJS App is listening to Port-8000 @*/
+/*@ NodeJS App is listening to Port-8080 @*/
