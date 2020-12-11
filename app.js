@@ -21,6 +21,17 @@ io.on('connection', (socket) => {
        }
     }); 
 
+    socket.on('tableOnline', (data) => {
+        try {
+        console.log(data)
+         console.log('Cashier has connected to Socket.io Real Time');
+         io.emit('tableOnline', data);
+        } catch(err) {
+         console.log(err.message);
+         socket.emit('error', { errMessage: err.message })
+        }
+     }); 
+
 });
 /*@ Socket.io Connection @*/
 
