@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
     }); 
 
     socket.on('test', (data) => {
-        socket.broadcast.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('test', data);
+        io.emit('test', data);
     })
     
     
