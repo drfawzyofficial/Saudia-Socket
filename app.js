@@ -20,6 +20,9 @@ const residentNotification = require("./models/residentNotification");
 
 /*@ Socket.io Connection @*/
 io.on('connection', (socket) => {
+    socket.on('vue', async (we) => {
+        socket.emit('vue', `there are lots of things now ${ we }`)
+    });
     socket.on('adminJoin', (data) => {
        try {
         console.log('Admin has connected to Socket.io Real Time');
@@ -28,7 +31,7 @@ io.on('connection', (socket) => {
         console.log(err.message);
         socket.emit('error', { errMessage: err.message })
        }
-    });
+    }); 
     socket.on('newUser', async data => {
         try {
             console.log('New User is Joining now');
