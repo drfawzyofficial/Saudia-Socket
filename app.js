@@ -11,15 +11,16 @@ const io = require('socket.io')(http);
 
 /*@ Socket.io Connection @*/
 io.on('connection', (socket) => {
-    // socket.on('cashierJoin', (data) => {
-    //    try {
-    //     console.log('Cashier has connected to Socket.io Real Time');
-    //     socket.join(data.roomID);
-    //    } catch(err) {
-    //     console.log(err.message);
-    //     socket.emit('error', { errMessage: err.message })
-    //    }
-    // }); 
+    socket.on('cashierJoin', (data) => {
+       try {
+        console.log('Cashier has connected to Socket.io Real Time');
+        socket.join(data.roomID);
+        socket.emit('ledo', { roomID: data.roomID, rooms: io.sockets.adapter.rooms })
+       } catch(err) {
+        console.log(err.message);
+        socket.emit('error', { errMessage: err.message })
+       }
+    }); 
 
     // socket.on('tableOnline', (data) => {
     //     try {
