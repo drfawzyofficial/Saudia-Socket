@@ -29,11 +29,12 @@ io.on('connection', (socket) => {
         socket.emit('error', { errMessage: err.message })
        }
     }); 
+
 });
 /*@ Socket.io Connection @*/
 
-/*@ NodeJS App is listening to Port-8080 @*/
-const port = process.env.PORT || 8080;
+/*@ NodeJS App is listening to Port-2000 @*/
+const port = process.env.PORT || 2000;
 http.listen(port, () => {
     console.log(`Running on Port: ${ port }`);
 });
