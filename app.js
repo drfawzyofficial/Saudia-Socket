@@ -21,9 +21,11 @@ io.on('connection', (socket) => {
        }
     }); 
 
-    socket.on('tableOnline', (table) => {
-        io.emit('tableOnline', table);
-    })
+    // socket.on('tableOnline', (table) => {
+       
+    // })
+
+    io.emit('tableOnline', { number: 5, status: 'offline' });
     
     
 
