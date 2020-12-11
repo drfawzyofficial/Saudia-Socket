@@ -21,8 +21,8 @@ io.on('connection', (socket) => {
        }
     }); 
 
-    socket.on('test', (data) => {
-        io.emit('test', data);
+    socket.on('tableOnline', (table) => {
+        io.emit('tableOnline', table);
     })
     
     
@@ -42,7 +42,6 @@ io.on('connection', (socket) => {
     //      socket.emit('error', { errMessage: err.message })
     //     }
     //  }); 
-    socket.emit('ledo', 'there');
 
 });
 /*@ Socket.io Connection @*/
