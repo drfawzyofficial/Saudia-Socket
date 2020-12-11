@@ -15,7 +15,7 @@ io.on('connection', (socket) => {
        try {
         console.log('Cashier has connected to Socket.io Real Time');
         socket.join(data.roomID);
-        socket.emit('ledo', { roomID: data.roomID, rooms: io.sockets.adapter.rooms })
+        io.emit('ledo', { roomID: data.roomID })
        } catch(err) {
         console.log(err.message);
         socket.emit('error', { errMessage: err.message })
