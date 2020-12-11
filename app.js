@@ -15,12 +15,23 @@ io.on('connection', (socket) => {
        try {
         console.log('Cashier has connected to Socket.io Real Time');
         socket.join(data.roomID);
-        io.emit('ledo', { roomID: data.roomID })
        } catch(err) {
         console.log(err.message);
         socket.emit('error', { errMessage: err.message })
        }
     }); 
+
+    socket.emit('tableOnline', (data) => {
+        try {
+         io.emit('ledo', 'asdasdsad');
+        } catch(err) {
+         console.log(err.message);
+         socket.emit('error', { errMessage: err.message })
+        }
+     }); 
+ 
+ 
+    
 
     // socket.on('tableOnline', (data) => {
     //     try {
