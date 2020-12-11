@@ -21,7 +21,13 @@ io.on('connection', (socket) => {
        }
     }); 
 
-    io.emit('tableOnline', { number: 5, status: 'Offline' });
+    socket.on('test', (data) => {
+        socket.broadcast.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('test', data);
+    })
+    
+    
+
+   
  
  
     
