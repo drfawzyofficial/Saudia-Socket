@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
 
     socket.emit('tableOnline', (data) => {
         try {
-         io.emit('ledo', 'asdasdsad');
+         io.emit('tableOnline', { number: 5, status: 'Offline' });
         } catch(err) {
          console.log(err.message);
          socket.emit('error', { errMessage: err.message })
