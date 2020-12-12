@@ -28,8 +28,7 @@ io.on('connection', (socket) => {
 
     socket.on('tableOnline', (data) => {
         io.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('tableOnline', data);
-   
-   
+    });
 });
 /*@ Socket.io Connection @*/
 
