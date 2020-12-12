@@ -30,25 +30,6 @@ io.on('connection', (socket) => {
         io.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('tableOnline', data);
     })
    
-    
-    
-
-   
- 
- 
-    
-
-    // socket.on('tableOnline', (data) => {
-    //     try {
-    //     console.log(data)
-    //      console.log('Cashier has connected to Socket.io Real Time');
-    //      io.emit('tableOnline', data);
-    //     } catch(err) {
-    //      console.log(err.message);
-    //      socket.emit('error', { errMessage: err.message })
-    //     }
-    //  }); 
-
 });
 /*@ Socket.io Connection @*/
 
