@@ -20,6 +20,7 @@ io.on('connection', (socket) => {
        try {
         console.log('Cashier has connected to Socket.io Real Time');
         socket.join(data.roomID);
+        socket.emit('test', 'www');
        } catch(err) {
         console.log(err.message);
         socket.emit('error', { errMessage: err.message })
