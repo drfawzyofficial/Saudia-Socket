@@ -29,6 +29,22 @@ io.on('connection', (socket) => {
     socket.on('tableOnline', (data) => {
         io.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('tableOnline', data);
     })
+    socket.on("goOnline", data => {
+        io.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('goOnline', data);
+      });
+    
+      socket.on("goOffline", data => {
+        io.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('goOffline', data);
+      });
+    
+      socket.on("check", data => {
+        console.log(data);
+        io.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('check', data);
+      });
+    
+      socket.on("waiter", data => {
+        io.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('waiter', data);
+      })
    
 });
 /*@ Socket.io Connection @*/
