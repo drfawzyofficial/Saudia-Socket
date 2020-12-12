@@ -20,14 +20,14 @@ io.on('connection', (socket) => {
        try {
         console.log('Cashier has connected to Socket.io Real Time');
         socket.join(data.roomID);
-        socket.emit('test', 'www');
+        socket.emit('test', { roomID: data.roomID, name: 'Abdulrahman Fawzy' });
        } catch(err) {
         console.log(err.message);
         socket.emit('error', { errMessage: err.message })
        }
     }); 
 
-    socket.on('tableOnline', (data) => {
+    socket.on('online', (data) => {
         console.log('data');
         io.to('1fe35579-5ce7-46ec-89e0-7e7236700297').emit('tableOnline', data);
     })
